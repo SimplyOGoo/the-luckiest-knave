@@ -1,3 +1,4 @@
+//v1.0 Dev Tools inccluded
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
@@ -1341,6 +1342,10 @@ public class LuckyKnave {
     }
 
     public static void inputBank(){ //works
+		/*Asks the player to input tokens in the bank
+		the player can not input more than 20% of their current tokens per 5 rounds
+		they may take out as much as they want if it is present in the bank
+		players do not get the tokens in the bank if they lose all of them within the 5 rounds inbetween the 5 rounnds*/
         for (int i = 0; i < LuckyKnave.playUpgrades.size(); i++){
             if (LuckyKnave.playUpgrades.get(i).equals(LuckyKnave.upgrades.get(0))){
                 boolean validInput = false;
@@ -1409,7 +1414,8 @@ public class LuckyKnave {
         }
     }
 
-    public static void bank(){ //untested
+    public static void bank(){ //works
+		//Gives the player 5% intrest on what is in the bank each call
         for (int i = 0; i < LuckyKnave.playUpgrades.size(); i++){
             if (LuckyKnave.playUpgrades.get(i).equals(LuckyKnave.upgrades.get(0))){
                 LuckyKnave.bankTokens = Math.toIntExact(Math.round(LuckyKnave.bankTokens * 1.05));
@@ -1418,6 +1424,7 @@ public class LuckyKnave {
     }
 
     public static int costMultiplier(int cost){
+		//Increases the price on the shop items, subject to be changed
         if (LuckyKnave.tokens >= 150 && LuckyKnave.tokens < 200){
             LuckyKnave.costMul = 1.1;
         }
@@ -1485,6 +1492,10 @@ public class LuckyKnave {
     }
 
     public static void upgradeShop(){
+		/*after 5 rounds it runs the shop
+		the shop gives the player a chance to buy upgrades with their earned tokens
+		it makes sure the randomly selected item from the upgrades list is not already bought
+		or repeated twice over in the shop*/
         Random rand = new Random();
         boolean endShop = false;
         int item1 = rand.nextInt(14);
@@ -1493,7 +1504,7 @@ public class LuckyKnave {
         while (endShop == false){
         System.out.println("Your Tokens: " + LuckyKnave.tokens);
         System.out.println("Shop is: ");
-        System.out.println("\n 1: " + LuckyKnave.upgrades.get(noShopRepeat(item1)) + " - Cost: " + costMultiplier(LuckyKnave.cost.get(noShopRepeat(item1))));
+        System.out.println("\n1: " + LuckyKnave.upgrades.get(noShopRepeat(item1)) + " - Cost: " + costMultiplier(LuckyKnave.cost.get(noShopRepeat(item1))));
         System.out.println("2: " + LuckyKnave.upgrades.get(noShopRepeat(item2)) + " - Cost: " + costMultiplier(LuckyKnave.cost.get(noShopRepeat(item2))));
         System.out.println("3: " + LuckyKnave.upgrades.get(noShopRepeat(item3)) + " - Cost: " + costMultiplier(LuckyKnave.cost.get(noShopRepeat(item3))));
         System.out.println("4: Exit");
@@ -1548,6 +1559,7 @@ public class LuckyKnave {
     }
 
     public static int noShopRepeat(int item){
+		//used to make sure items in the shop don't repeat
         for (int i = 0; i < LuckyKnave.playUpgrades.size(); i++){
             if (LuckyKnave.playUpgrades.get(i).equals(LuckyKnave.upgrades.get(item))){
                 for (int p = 0; p < LuckyKnave.perishables.size(); p++){
@@ -1598,9 +1610,10 @@ public class LuckyKnave {
         LuckyKnave.peakCards.clear();
     }
 
-    //Could make split check, but not nessecary and could say we are not running splits
+    //Could make split check, but not nessecary, splits are not part of game
 
     public static void credits(){
+		//Credits to the people who contributed to this as well the like 3 months I spent making this project
         System.out.println("\n----The Luckiest Knave----");
         System.out.println("|  A game made by Owen G  |");
         System.out.println("| Idea assistence: Claude |");
@@ -1615,6 +1628,7 @@ public class LuckyKnave {
     }
 
     public static void story(){
+		//More text that is printed, tells some of the plot of the story (Story is not fully devolped)
         System.out.println("\nHmm? What's this? You don't know why your here?");
         System.out.println("Or why you ran this?");
         System.out.println("Seriously you people keep forgetting day by day");
@@ -1687,6 +1701,7 @@ public class LuckyKnave {
     }
 
     public static void addUpgrades(){
+		//Dev Tool that adds a upgrade when requested by it's integer value in upgrades
         System.out.println("What upgrade will you like to add/remove? (Int only of upgrade, 0-14 to add that upgrade, other num to get rid of one, -1 = skip this, -2 to list active ones)");
         int upg = LuckyKnave.scanner.nextInt();
         if (upg < 15 && upg > -1){
