@@ -1282,7 +1282,8 @@ public class LuckyKnave {
         }
     }
 
-    public static void floorStains(){ //works, needs buff
+    public static void floorStains(){ //works, may need buff
+		//Every win the player gets they get a win streak bonus 
         for (int i = 0; i < LuckyKnave.playUpgrades.size(); i++){
             if (LuckyKnave.playUpgrades.get(i).equals(LuckyKnave.upgrades.get(13))){
                 double Multi = 1.0;
@@ -1300,10 +1301,12 @@ public class LuckyKnave {
         }
     }
 
-    public static void knavesKin(){ //fix to be hand wide and not first draw, IDK maybe I did that, untested
-        for (int i = 0; i < LuckyKnave.playUpgrades.size(); i++){
+    public static void knavesKin(){ //untested, should work, hand wide
+        //When the player gets a 2 or Jack it multiplies their winnings by 1.5x in the round, does not apply on loss and you can miss the chance to get this if you lose
+		//Does work if you have Push More and you get a Push
+		for (int i = 0; i < LuckyKnave.playUpgrades.size(); i++){
             if (((LuckyKnave.card1.equals("a Jack") && LuckyKnave.card2.equals("2")) || (LuckyKnave.card1.equals("2") && LuckyKnave.card2.equals("a Jack"))) && (LuckyKnave.playUpgrades.get(i).equals(LuckyKnave.upgrades.get(14)))){
-                LuckyKnave.bet = Math.toIntExact(Math.round(LuckyKnave.bet * 1.2));
+                LuckyKnave.bet = Math.toIntExact(Math.round(LuckyKnave.bet * 1.5));
             } else {
                 ArrayList<String> playCards = new ArrayList<>();
                 if(LuckyKnave.hitCount == 1){
