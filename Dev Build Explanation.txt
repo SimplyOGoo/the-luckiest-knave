@@ -1,0 +1,4 @@
+Within the Dev Build there are 3 changes that are used specifically for testing
+You may use "upgrade" in the bet input and use the list location of the upgrade in the list to gain it rest is explained when using it
+You may use "more" in the bet input to gain how many tokens you may input
+You may use "win" in the hit/stand input to be guaranteed a win for that round
