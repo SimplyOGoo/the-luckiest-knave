@@ -65,7 +65,7 @@ public class LuckyKnave {
         LuckyKnave.upgrades.add("Box Cutter"); //second try to win if dealer wins (Not if you bust) - Cost 200 PERISHABLE
         LuckyKnave.upgrades.add("Deck Peak"); //You get to decide once you see your first 2 cards if you would like to redraw them both - Cost 60 PERISHABLE
         LuckyKnave.upgrades.add("What's yours is mine"); //Player may make the turn push at anytime while it is still their turn - Cost 80 PERISHABLE
-        LuckyKnave.upgrades.add("Make it Double"); //If your first 2 cards are the same you will get 15% of yout current tokens after the round ends (SO if you go all in you can still lose) - Cost 30 
+        LuckyKnave.upgrades.add("Make it Double"); //If your first 2 cards are the same you will get 15% of your current tokens after the round ends (SO if you go all in you can still lose) - Cost 30 
         LuckyKnave.upgrades.add("Keep it Simple"); //If your starting hand is equal to 10 or 15 and uses at least one 5 then you automatically get Blackjack - Cost 30 PERISHABLE
         LuckyKnave.upgrades.add("Two Easy"); //You can make the next card your draw 2 - Cost 50 PERISHABLE
         LuckyKnave.upgrades.add("Insurance"); //When you activate insurance and you lose the round you get half of what you bet back, if you win the round with insurance on you lose it still - Cost 50 PERISHABLE
@@ -215,7 +215,7 @@ public class LuckyKnave {
             if (LuckyKnave.cardTotal != 21){
                 System.out.println("Hit or Stand?");
                 //player chooses to hit or stand
-                String option = LuckyKnave.scanner.next();
+                String option = LuckyKnave.scanner.nextLine();
                 //hit includes the stand options to make sure no other text is shown
                 hit(option);
                 bustCheck();
@@ -300,6 +300,7 @@ public class LuckyKnave {
         while (LuckyKnave.bet <= 0){
             if (LuckyKnave.scanner.hasNextInt()){
                 LuckyKnave.bet = LuckyKnave.scanner.nextInt();
+                LuckyKnave.scanner.nextLine();
             } else {
                 text = LuckyKnave.scanner.next();
             }
