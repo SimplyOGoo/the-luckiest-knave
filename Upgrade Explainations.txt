@@ -1,0 +1,23 @@
+As a person I have not yet found the best way to explain these in game so their effects are explained here and in the code, Perishables mean when used they are removed from usability unless bought again in the shop
+Upgrade 1: Bank - Let's the player store tokens and based on what is put in there they make passive token earnings (This will stop at some point so the Player can still and is more likely to lose than they would have to begin with) - Cost 100
+Upgrade 2: Money Maker - Wins gain 1.1x more - Cost 75
+Upgrade 3: Box Cutter - Second try to win if dealer wins (Not if you bust) - Cost 200 PERISHABLE
+Upgrade 4: Deck Peak - You get to decide once you see your first 2 cards if you would like to redraw them both - Cost 60 PERISHABLE
+Upgrade 5: What's yours is mine - Player may make the turn push at anytime while it is still their turn - Cost 80 PERISHABLE
+Upgrade 6: Make it Double - If your first 2 cards are the same you will get 15% of your current tokens after the round ends (SO if you go all in you can still lose) - Cost 30 
+Upgrade 7: Keep it Simple - If your starting hand is equal to 10 or 15 and uses at least one 5 then you automatically get Blackjack - Cost 30 PERISHABLE
+Upgrade 8: Two Easy - You can make the next card your draw 2 - Cost 50 PERISHABLE
+Upgrade 9: Insurance - When you activate insurance and you lose the round you get half of what you bet back, if you win the round with insurance on you lose it still - Cost 50 PERISHABLE
+Upgrade 10: Filling the Box - If you lost over 90% of your token in the last round, if you win this round your bet is worth 1.5x more - Cost 80
+Upgrade 11: Heavy Cards - All Face cards value at 11 (Aces are still 11 and 1), 2s and 3s no do not have any value - Cost 50 
+Upgrade 12: Push me some more - When you get a push you win 0.5 of your bet - Cost 120
+Upgrade 13: High Steaks - While owning this upgrade and your tokens are below 30 you can get bet multipliers when you win and only gain 0.3 of your bet rounded up, this multiplier may be used at anytime while below 30 token - Cost 100
+Upgrade 14: Floor Stains - When on a win streak you continue to get 1.02% more for every win (Win 3 rounds in row 1.06x), but you lose 1.02% more to the dealer if you lose - Cost 75
+Upgrade 15: Knave's Kin - When you have a Jack and 2 you get 1.2x more winnings - Cost 50
+
+Bank accepts input and output of tokens when the shop comes
+You activate What's yours is mine instead of hit or stand during a round to use it, after words you must stand to activate the desired push. You may use "What's yours is mine", "WYIM", or "Whats yours is mine" in the hit/stand input area to activate it
+You activate Two Easy in the hit/stand input using "TE", "te", or "Two Easy" (With any capitalization in the first letter), if not used in the same round guaranteed to be first card in next round
+You activated Insurance in the hit/stans input using "Insurance" or "Insure"(With any capitalization in the first letter)
+To activate the multiplier built from High Steaks onto your bet in the round use "hs", "HS", or "High Steaks" (With any capitalization in the first letter) in your bet input
+To see the credits of "The Luckiest Knave" please type credits into the bet input
