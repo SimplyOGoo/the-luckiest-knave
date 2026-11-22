@@ -1027,6 +1027,7 @@ public class LuckyKnave {
     public static void moneyMaker(){ //works
         //used to maker sure other winning multipliers don't stack too much and become overpowered way faster than anticipated
         //The multipliers being Money Maker, Blackjack, and Filling the Box
+        //Money maker is a passive 1.1 boost yo your bet when you win or 10%
         boolean moneyMaker = false;
         for (int i = 0; i < LuckyKnave.playUpgrades.size(); i++){
             if (LuckyKnave.playUpgrades.get(i).equals(LuckyKnave.upgrades.get(1)) && moneyMaker == false){
@@ -1059,6 +1060,7 @@ public class LuckyKnave {
     }
 
     public static void keepItSimple(){ //works
+        //if the first cards you draw are 10 or 5 you automatically get blackjack and win
         for (int i = 0; i < LuckyKnave.playUpgrades.size(); i++){
             if (((LuckyKnave.card1.equals("5") && LuckyKnave.card2.equals("10")) || (LuckyKnave.card1.equals("5") && LuckyKnave.card2.equals("5")) || (LuckyKnave.card1.equals("10") && LuckyKnave.card2.equals("5"))) && (LuckyKnave.playUpgrades.get(i).equals(LuckyKnave.upgrades.get(6)))){
                 LuckyKnave.TweOne = true;
@@ -1068,6 +1070,7 @@ public class LuckyKnave {
     }
 
     public static void makeItDouble(){ //works
+        //if the first 2 cards are the same your bet is 1.15 more or 15%
         for (int i = 0; i < LuckyKnave.playUpgrades.size(); i++){
             if ((LuckyKnave.playUpgrades.get(i).equals(LuckyKnave.upgrades.get(5))) && (LuckyKnave.card1.equals(LuckyKnave.card2))){
                 LuckyKnave.makeDouble = Math.toIntExact(Math.round(LuckyKnave.tokens * 1.15));
@@ -1076,6 +1079,7 @@ public class LuckyKnave {
     }
 
     public static boolean boxCutter(){ //works
+        //if the player loses the round they get another atempt to win before losing their tokens
         for (int i = 0; i < LuckyKnave.playUpgrades.size(); i++){
             if (LuckyKnave.playUpgrades.get(i).equals(LuckyKnave.upgrades.get(2))){
                 return true;
@@ -1085,6 +1089,7 @@ public class LuckyKnave {
     }
 
     public static void deckPeak(){ //works
+        //Lets you redraw first hand
         for (int i = 0; i < LuckyKnave.playUpgrades.size(); i++){
             if (LuckyKnave.playUpgrades.get(i).equals(LuckyKnave.upgrades.get(3))){
                 boolean validInput = false;
@@ -1175,6 +1180,7 @@ public class LuckyKnave {
     }
 
     public static boolean whatYourMine(String w){ //works
+        //When activated and the player stands the result will always be a push
         boolean choseOpt = false;
         boolean hasWYIM = false;
         for (int i = 0; i < LuckyKnave.playUpgrades.size(); i++){
@@ -1211,6 +1217,7 @@ public class LuckyKnave {
     }
 
     public static boolean twoEasy(boolean remove){ //works
+        //makes the next card you draw a 2 when activated
         for (int i = 0; i < LuckyKnave.playUpgrades.size(); i++){
             if (LuckyKnave.playUpgrades.get(i).equals(LuckyKnave.upgrades.get(7))){
                 if (remove == true && LuckyKnave.twoEasy == true){
@@ -1224,6 +1231,7 @@ public class LuckyKnave {
     }
 
     public static void insurance(){ //works
+        //when actiavted for the round if you lose you only lose half you bet over what was intended
         for (int i = 0; i < LuckyKnave.playUpgrades.size(); i++){
             if (LuckyKnave.playUpgrades.get(i).equals(LuckyKnave.upgrades.get(8))){
                 LuckyKnave.playUpgrades.remove(i);
@@ -1234,6 +1242,7 @@ public class LuckyKnave {
     }
 
     public static void fillBox(){ //works
+        //after losing 90% of your tokens in the last round you gain a money multiplier if you win the next round after the 90% loss
         for (int i = 0; i < LuckyKnave.playUpgrades.size(); i++){
             if (LuckyKnave.playUpgrades.get(i).equals(LuckyKnave.upgrades.get(9))){
                 if (lastBet >= Math.toIntExact(Math.round(LuckyKnave.lastTokens * 0.9))){
@@ -1244,6 +1253,7 @@ public class LuckyKnave {
     }
 
     public static boolean heavyCards(){ //works
+        //kings, queens, and jacks become a value of 11 and 2s and 3s value is now 0
         for (int i = 0; i < LuckyKnave.playUpgrades.size(); i++){
             if (LuckyKnave.playUpgrades.get(i).equals(LuckyKnave.upgrades.get(10))){
                 return true;
@@ -1253,6 +1263,7 @@ public class LuckyKnave {
     }
 
     public static void pushMore(){ //works
+        //When the result of a round is a push you actually gain 0.5 or 50% of your bet back
         for (int i = 0; i < LuckyKnave.playUpgrades.size(); i++){
             if (LuckyKnave.playUpgrades.get(i).equals(LuckyKnave.upgrades.get(11))){
                 if (LuckyKnave.push == true){
@@ -1263,6 +1274,7 @@ public class LuckyKnave {
     }
 
     public static void highSteaks(boolean activate){ //works enough (The numbers don't exactly match up but like more is more)
+        //When under 30 tokens the player gets only 0.3 earns on their bet but gets a active multipler on their bet when activated under 30 tokens
         for (int i = 0; i < LuckyKnave.playUpgrades.size(); i++){
             if (LuckyKnave.playUpgrades.get(i).equals(LuckyKnave.upgrades.get(12))){
                 if (LuckyKnave.tokens <= 30){
@@ -1270,9 +1282,10 @@ public class LuckyKnave {
                     LuckyKnave.steakInts++;
                     for (int s = 0; s < steakInts; s++){
                         LuckyKnave.steakMul = LuckyKnave.steakMul + 0.02;
+                        LuckyKnave.bet = Math.toIntExact(Math.round(LuckyKnave.lastBet * 0.3));
                     }
                     if (activate == true){
-                        LuckyKnave.bet = Math.toIntExact(Math.round(LuckyKnave.lastBet * 0.3));
+                        LuckyKnave.bet = Math.toIntExact(Math.round(LuckyKnave.bet * LuckyKnave.steakMul));
                         LuckyKnave.steakActive = false;
                     }
                 } else {
@@ -1283,7 +1296,8 @@ public class LuckyKnave {
     }
 
     public static void floorStains(){ //works, may need buff
-		//Every win the player gets they get a win streak bonus 
+		/*Every win the player gets they get a win streak bonus
+        Specifically everytime the player wins their bet is increased by 0.02 or 2%*/
         for (int i = 0; i < LuckyKnave.playUpgrades.size(); i++){
             if (LuckyKnave.playUpgrades.get(i).equals(LuckyKnave.upgrades.get(13))){
                 double Multi = 1.0;
@@ -1301,7 +1315,7 @@ public class LuckyKnave {
         }
     }
 
-    public static void knavesKin(){ //untested, should work, hand wide
+    public static void knavesKin(){ //untested, should work hand wide
         //When the player gets a 2 or Jack it multiplies their winnings by 1.5x in the round, does not apply on loss and you can miss the chance to get this if you lose
 		//Does work if you have Push More and you get a Push
 		for (int i = 0; i < LuckyKnave.playUpgrades.size(); i++){
