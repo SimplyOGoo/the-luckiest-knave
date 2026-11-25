@@ -358,7 +358,6 @@ public class LuckyKnave {
             LuckyKnave.hitCount++;
             if(LuckyKnave.hitCount == 1){
                 LuckyKnave.card3 = deal();
-                System.out.println("hit count:" + LuckyKnave.hitCount);
             } else if (LuckyKnave.hitCount == 2){
                 LuckyKnave.card4 = deal();
             } else if (LuckyKnave.hitCount == 3){
@@ -652,6 +651,8 @@ public class LuckyKnave {
         //will check to see if the dealer and player tie so player gets bet back and round restarts
         if (cardTotal == dealerTotal){
             LuckyKnave.push = true;
+        } else {
+            LuckyKnave.push = false;
         }
     }
 
@@ -758,7 +759,7 @@ public class LuckyKnave {
     public static void dealerTurn(){
         //plays out the dealer's turn
         //If the players busts it skips the dealer's turn
-        if (LuckyKnave.bustP == true || LuckyKnave.push == true || LuckyKnave.TweOne == true || LuckyKnave.bustD == true){
+        if (LuckyKnave.bustP == true || LuckyKnave.push == true || LuckyKnave.TweOne == true){
             endRound();
         } else {
         //After the player stands
@@ -787,6 +788,7 @@ public class LuckyKnave {
             bustCheck();
             pushCheck();
         }
+        pushCheck();
         endRound();
         }
     }
@@ -1522,7 +1524,10 @@ public class LuckyKnave {
         if (opt.equals("1") || opt.equals("one") || opt.equals("One")){
             System.out.println("\nYou want " + LuckyKnave.upgrades.get(item1) + " for " + costMultiplier(LuckyKnave.cost.get(item1)) + "? (Y/N)");
             String YN = LuckyKnave.scanner.next();
-            if (YN.contains("Yes") || YN.equals("yes") || YN.equals("y") || YN.equals("Y")){
+            if (((YN.contains("Yes") || YN.equals("yes") || YN.equals("y") || YN.equals("Y")) && LuckyKnave.tokens < costMultiplier(LuckyKnave.cost.get(item1))) || ((YN.contains("Yes") || YN.equals("yes") || YN.equals("y") || YN.equals("Y")) && LuckyKnave.tokens == costMultiplier(LuckyKnave.cost.get(item1)))){
+                System.out.println("You can not purchase this upgrade");
+                System.out.println("Please choose another or exit");
+            } else if (YN.contains("Yes") || YN.equals("yes") || YN.equals("y") || YN.equals("Y")){
                 LuckyKnave.playUpgrades.add(LuckyKnave.upgrades.get(item1));
                 System.out.println("You bought " + LuckyKnave.upgrades.get(item1) + "!");
                 LuckyKnave.tokens = LuckyKnave.tokens - costMultiplier(LuckyKnave.cost.get(item1));
@@ -1535,7 +1540,10 @@ public class LuckyKnave {
         } else if (opt.equals("2") || opt.equals("Two") || opt.equals("two")){
             System.out.println("\nYou want " + LuckyKnave.upgrades.get(item2) + " for " + costMultiplier(LuckyKnave.cost.get(item2)) + "? (Y/N)");
             String YN = LuckyKnave.scanner.next();
-            if (YN.contains("Yes") || YN.equals("yes") || YN.equals("y") || YN.equals("Y")){
+            if (((YN.contains("Yes") || YN.equals("yes") || YN.equals("y") || YN.equals("Y")) && LuckyKnave.tokens < costMultiplier(LuckyKnave.cost.get(item2))) || ((YN.contains("Yes") || YN.equals("yes") || YN.equals("y") || YN.equals("Y")) && LuckyKnave.tokens == costMultiplier(LuckyKnave.cost.get(item2)))){
+                System.out.println("You can not purchase this upgrade");
+                System.out.println("Please choose another or exit");
+            } else if (YN.contains("Yes") || YN.equals("yes") || YN.equals("y") || YN.equals("Y")){
                 LuckyKnave.playUpgrades.add(LuckyKnave.upgrades.get(item2));
                 System.out.println("You bought " + LuckyKnave.upgrades.get(item2) + "!");
                 LuckyKnave.tokens = LuckyKnave.tokens - costMultiplier(LuckyKnave.cost.get(item2));
@@ -1548,7 +1556,10 @@ public class LuckyKnave {
         } else if (opt.equals("3") || opt.equals("Three") || opt.equals("three")){
             System.out.println("You want " + LuckyKnave.upgrades.get(item3) + " for " + costMultiplier(LuckyKnave.cost.get(item3)) + "? (Y/N)");
             String YN = LuckyKnave.scanner.next();
-            if (YN.contains("Yes") || YN.equals("yes") || YN.equals("y") || YN.equals("Y")){
+            if (((YN.contains("Yes") || YN.equals("yes") || YN.equals("y") || YN.equals("Y")) && LuckyKnave.tokens < costMultiplier(LuckyKnave.cost.get(item3))) || ((YN.contains("Yes") || YN.equals("yes") || YN.equals("y") || YN.equals("Y")) && LuckyKnave.tokens == costMultiplier(LuckyKnave.cost.get(item3)))){
+                System.out.println("You can not purchase this upgrade");
+                System.out.println("Please choose another or exit");
+            } else if (YN.contains("Yes") || YN.equals("yes") || YN.equals("y") || YN.equals("Y")){
                 LuckyKnave.playUpgrades.add(LuckyKnave.upgrades.get(item3));
                 System.out.println("\nYou bought " + LuckyKnave.upgrades.get(item3) + "!");
                 LuckyKnave.tokens = LuckyKnave.tokens - costMultiplier(LuckyKnave.cost.get(item3));
